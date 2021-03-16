@@ -1,0 +1,11 @@
+.content_box {
+    background: azure;
+}
+#header_main {
+    border-bottom: 2px solid #a7d7f9;
+}
+#box_list {
+    height: 150px;
+    width: 150px;
+    background: silver;
+}
