@@ -5,7 +5,7 @@
 .main_box {
     overflow: hidden;
     background: tomato;
-    margin: 30px 0px 30px;
+    margin: 30px 0 30px;
     border: solid lightslategray;
     border-radius: 15px;
 }
@@ -27,7 +27,7 @@
     background: aliceblue;
     width:30%
 }
-/*aosduhfjahdffffffffffffffffffffffffffffffffffffffffffffffff*/
+
 .block_A {
     background: silver;
     width:auto;
@@ -70,4 +70,4 @@
     width: auto;
 }
 
-/*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/
+
