@@ -1,11 +1,45 @@
+body {
+    background: #f6f6f6;
+}
+
+.main_page {
+
+    border:  solid #0b9b9b;
+    padding: 20px;
+    margin-top: 100px;
+    margin-left: 150px;
+}
+
 .content_box {
+    background: #ffffff;
+
+}
+
+.header {
+    border-bottom:  solid silver;
+
+}
+
+#box_list {
+    border:  solid silver;
+    height: 160px;
+    width: 150px;
     background: azure;
 }
-#header_main {
-    border-bottom: 2px solid #a7d7f9;
+
+#box {
+    border: solid silver;
 }
-#box_list {
-    height: 150px;
-    width: 150px;
-    background: silver;
+#qqq {
+
+    background: azure;
 }
+.bottom {
+    margin-left: 170px;
+}
+
+
+
+
+
+
