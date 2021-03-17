@@ -1,0 +1,28 @@
+.size {
+    width: 200px;
+    height: 200px;
+}
+.main_box {
+    /*width: 600px;*/
+    /*height: 900px;*/
+    background: tomato;
+}
+.box_1 {
+    background: darkgoldenrod;
+    width:auto;
+}
+.box_to_box {
+    display: flex;
+    align-items: center;
+
+
+}
+.mmm  {
+    background: #0b9b9b;
+    width:50%
+}
+.sss {
+    background: aliceblue;
+    width:50%
+
+}
