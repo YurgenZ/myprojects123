@@ -11,7 +11,8 @@
 }
 .box_1 {
     background: darkgoldenrod;
-    width:auto;height:100px;
+    width:auto;
+    height:100px;
 }
 .box_to_box {
     display: flex;
@@ -27,6 +28,8 @@
     background: aliceblue;
     width:30%
 }
+
+
 
 .block_A {
     background: silver;
@@ -57,6 +60,19 @@
     height: 400px;
     width: 30%;
 }
+.block_G {
+    background:gold;
+    height: 200px;
+    width: 33.3333%;
+}
+
+
+
+.block_H {
+    background:hotpink;
+    height: 400px;
+    width: 30%;
+}
 .box4 {
     display: flex;
     flex-wrap: wrap;
@@ -69,5 +85,13 @@
     height: 400px;
     width: auto;
 }
-
-
+.block_B1 {
+    background:blue;
+    height: 200px;
+    width: 33.3333%;
+}
+.block_F1 {
+    background:firebrick;
+    height: 200px;
+    width: 33.3333%;
+}
