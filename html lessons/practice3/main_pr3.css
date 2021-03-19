@@ -1,0 +1,47 @@
+.main_box {
+    overflow: hidden;
+    background: silver;
+    width: auto;
+    height: 900px;
+}
+.margin {
+    margin: 10px;
+}
+#header {
+    background: lightgreen;
+    height: 10%;
+    width: auto;
+    margin: 10px;
+
+}
+.box_to_box {
+    /*background: red;*/
+    display: flex;
+    height: 400px;
+    width: auto;
+}
+#menu {
+    background: plum;
+    height: auto;
+    width: 200px;
+    margin: 10px;
+}
+.box {
+    display: flex;
+    justify-content: right;
+    flex-direction: column;
+    height: 400px;
+    width: 100%;
+}
+.post {
+    background: cornflowerblue;
+    height: 200px;
+    width: auto;
+    margin: 10px;
+}
+#footer {
+    background: burlywood;
+    height: 10%;
+    width: auto;
+    margin: 10px;
+}
