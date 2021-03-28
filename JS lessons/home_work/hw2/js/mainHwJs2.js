@@ -219,8 +219,29 @@ console.log();
 
 // Додатково
 // - Дано масив: [ 'a', 'b', 'c'] . За допомогою циклу for зібрати всі букви в слово.
+
+// let arrVerb = ['a', 'b', 'c'];
+// for (let i = 0; i < arrVerb.length; i++) {
+//     console.log(arrVerb.join(''));
+// }
+
 // - Дано масив: [ 'a', 'b', 'c'] . За допомогою циклу while зібрати всі букви в слово.
+
+// let arrVerb = ['a', 'b', 'c'];
+// let i = 0;
+// while (i < arrVerb.length) {
+//     console.log(arrVerb.join(""));
+//     i++;
+// }
+
 // - Дано масив: [ 'a', 'b', 'c'] . За допомогою циклу for of зібрати всі букви в слово.
+
+// let arrVerb = ['a', 'b', 'c'];
+// for (let item of arrVerb ) {
+//     console.log(arrVerb.join(''));
+// }
+// ???????
+
 // - Дано масив: [ 'a', 'b', 'c'] . За допомогою циклу for of зібрати всі букви в слово.
 
 
