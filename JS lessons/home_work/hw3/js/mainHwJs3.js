@@ -140,32 +140,33 @@ let users = [
 // 3) За допомоги циклу проітерувати  масив users, записати кожного юзера в сівй блок за допомоги
 // document.createElement.Блок з адресою зробити окремим блоком, з блоками для кожної властивості
 
-// for (let i = 0; i < users.length; i++) {
-//     const userArr = document.createElement('div');
-// //
-// //     console.log(userArr);
-// //
-// //     userArr.style.margin = '20px';
-// //     userArr.style.backgroundColor = 'silver'
-// //
-//     userArr.innerHTML = `
-//     Hello my name is ${users[i].name} <br>
-//     I am ${users[i].age} years old`;
-// //
-//     document.body.appendChild(userArr);
-// //
-// }
-//
-// for (const user of users) {
-//     console.log(user);
-//
-//     console.log(user.address.city)
-//     let e = user.address
-//    e = document.createElement('h1');
-//     user.address.innerText = `${user.address}`
-//     document.body.appendChild(e)
-// }
-//  ++++++++тут пока не разобрался
+for (let i = 0; i < users.length; i++) {
+    const userArr = document.createElement('div');
+
+    console.log(userArr);
+
+    userArr.style.margin = '20px';
+    userArr.style.backgroundColor = 'silver';
+
+    userArr.innerHTML = `
+    Hello my name is ${users[i].name} <br>
+    I am ${users[i].age} years old`;
+
+    document.body.appendChild(userArr);
+}
+for (const user of users) {
+
+    let addressDiv = document.createElement('div');
+
+    addressDiv.style.margin = '20px';
+    addressDiv.style.backgroundColor = 'gold';
+
+    addressDiv.innerText = `місто: ${user.address.city} <br> країна: ${user.address.country} 
+вул: ${user.address.street} # буд: ${user.address.houseNumber}`;
+
+    document.body.appendChild(addressDiv);
+}
+
 
 
 
