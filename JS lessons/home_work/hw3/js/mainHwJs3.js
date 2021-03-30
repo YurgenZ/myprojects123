@@ -60,7 +60,8 @@ for (let i = 0; i < fs_rulesAll.length; i++) {
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-let users = [{
+let users = [
+    {
     name: 'vasya',
     age: 31,
     status: false,
@@ -114,7 +115,11 @@ let users = [{
     name: 'max',
     age: 31,
     status: true,
-    address: {city: 'Cairo', country: 'Egypt', street: 'Seashore', houseNumber: 45}
+    address: {
+        city: 'Cairo',
+        country: 'Egypt',
+        street: 'Seashore',
+        houseNumber: 45}
 }];
 
 // 2) За допомоги циклу проітерувати  масив users, записати кожного юзера в сівй блок за допомоги
@@ -135,21 +140,32 @@ let users = [{
 // 3) За допомоги циклу проітерувати  масив users, записати кожного юзера в сівй блок за допомоги
 // document.createElement.Блок з адресою зробити окремим блоком, з блоками для кожної властивості
 
-for (let i = 0; i < users.length; i++) {
-    let userArr = document.createElement('div');
-
-
-    console.log(userArr);
-    userArr.style.margin = '20px';
-    userArr.style.backgroundColor = 'silver'
-
-    userArr.innerHTML = `
-    Hello my name is ${users[i].name} <br>
-    I am ${users[i].age} years old`;
-
-    document.body.appendChild(userArr);
-}
-
+// for (let i = 0; i < users.length; i++) {
+//     const userArr = document.createElement('div');
+// //
+// //     console.log(userArr);
+// //
+// //     userArr.style.margin = '20px';
+// //     userArr.style.backgroundColor = 'silver'
+// //
+//     userArr.innerHTML = `
+//     Hello my name is ${users[i].name} <br>
+//     I am ${users[i].age} years old`;
+// //
+//     document.body.appendChild(userArr);
+// //
+// }
+//
+// for (const user of users) {
+//     console.log(user);
+//
+//     console.log(user.address.city)
+//     let e = user.address
+//    e = document.createElement('h1');
+//     user.address.innerText = `${user.address}`
+//     document.body.appendChild(e)
+// }
+//  ++++++++тут пока не разобрался
 
 
 
