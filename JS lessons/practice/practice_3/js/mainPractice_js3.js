@@ -141,30 +141,32 @@ let rules = [
     }
 ];
 
-for (let rule of rules) {
+for (const rule of rules) {
 
-    let rule = document.createElement('div');
+    let rulesDiv = document.createElement('div');
 
-    rule.classList.add('class_rules');
-    document.body.appendChild(rule);
+    // rulesDiv.classList.add('class_rules');
 
-    let headersCreate = document.createElement('h2');
-        headersCreate.classList.add('headers');
-        rule.appendChild(headersCreate);
+    // headersCreate.classList.add('headers');
+    // paragraphsCreate.classList.add('text_rules');
+
 
     let paragraphsCreate = document.createElement('p');
-        paragraphsCreate.classList.add('text_rules');
-        rule.appendChild(paragraphsCreate);
+    let header = document.createElement('h2');
+        header.innerText = `${rule.title}`;
+    rulesDiv.appendChild(header);
+                paragraphsCreate.innerText = `${rule.body}`
+    rulesDiv.appendChild(paragraphsCreate);
+
+    document.body.appendChild(rulesDiv);
+
+    }
+
+// }
 
 
-
-        headersCreate.innerText = 'LOREM';
-        paragraphsCreate.innerHTML = `lorem`;
-
-}
-
-    // rule.innerHTML  = `
-    // <h1>${rule.title}</h1> <p>${rule.body}</p>
+// <!--    rule.innerHTML  = -->
+// <!--    <h1>${rule.title}</h1> <p>${rule.body}</p>-->
 
 // ???????????????????????? треба якось запхать значення
 
@@ -175,12 +177,12 @@ for (let rule of rules) {
 // - Дано 2 масиви з рівною кількістю об'єктів.
 // Масиви:
 
-//     let usersWithId = [
-//         {id: 1, name: 'vasya', age: 31, status: false},
-//         {id: 2, name: 'petya', age: 30, status: true},
-//         {id: 3, name: 'kolya', age: 29, status: true},
-//         {id: 4, name: 'olya', age: 28, status: false}
-//     ];
+    // let usersWithId = [
+    //     {id: 1, name: 'vasya', age: 31, status: false},
+    //     {id: 2, name: 'petya', age: 30, status: true},
+    //     {id: 3, name: 'kolya', age: 29, status: true},
+    //     {id: 4, name: 'olya', age: 28, status: false}
+    // ];
 //
 // let citiesWithId = [
 //     {user_id: 3, country: 'USA', city: 'Portland'},
@@ -192,15 +194,15 @@ for (let rule of rules) {
 // let usersArr = [];
 //
 // for (const citiesWithIdElement of citiesWithId) {
-//     // console.log(citiesWithIdElement);
-//     for (const usersWithIdElement of usersWithId) {
-//         if (usersWithIdElement.id === citiesWithIdElement.user_id) {
-//             usersArr.push(usersWithIdElement );
-//             usersArr.push(citiesWithIdElement);
-//         }
-//     }
-//
-//
+//     console.log(citiesWithIdElement);
+    // for (const usersWithIdElement of usersWithId) {
+    //     if (usersWithIdElement.id === citiesWithIdElement.user_id) {
+    //         usersArr.push(usersWithIdElement );
+    //         usersArr.push(citiesWithIdElement);
+    //     }
+    // }
+
+
 // }
 // for (const usersArrElement of usersArr) {
 //
