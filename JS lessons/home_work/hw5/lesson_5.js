@@ -1,4 +1,144 @@
-// 1 -  Створити функцію конструктор для об'єкту який описує теги
+// Реалізовуємо свій компютерний магазин.
+// ===
+// Необхідно реалізувати базовий клас комютера. Який має лише параметри:
+//     Оперативна память.
+//     Потужність процесора. (цифра від 0 до 1000)
+// Назва.
+//     В кожного компютера має бути метод включання.
+//
+
+class AddComp {
+    constructor(ram, cpu, name) {
+        this.ram = ram;
+        this.name = name;
+        if (cpu >= 0 && cpu <= 1000) {
+            this.cpu = cpu;
+        }
+    }
+
+    compOn = () => console.log('you turn on this machine');
+
+}
+
+console.log()
+let comp = new AddComp('5', '111', 'drova');
+console.log(comp);
+comp.compOn()
+
+// Від базового компютрера треба реалізувати ноутбук.
+//     Він має нову властивість дюймаж монітора.
+//
+//     У нього зявляється нова змінна роботи батареї. Ця змінна визначається як потужність / (дюйми * оперативку)
+// ===
+
+class AddNout extends AddComp {
+    constructor(ram, cpu, name, inch) {
+        super(ram, cpu, name);
+        this.inch = inch;
+
+        this.power = this.inch / this.ram;
+    }
+
+    noutOn = () => console.log('you turn on this machine');
+    logger = () => console.log(this);
+}
+
+let nout = new AddNout('8', '750', 'dell_lapot', '19');
+nout.logger();
+nout.noutOn();
+
+// Від ноутбука потрібно зробити ультрабук.
+//     Він має нову змінну ваги.
+//     При включенні ультрабуку має видаватися помилка, якшо вага більша за 2кг та батарея тримаж менше ніж 4 години.
+// ===
+
+class AddUltrabook extends AddNout {
+    constructor(ram, cpu, name, inch, weight, power) {
+        super(ram, cpu, name, inch, power);
+        this.weight = weight;
+
+    }
+
+    onUltrabook() {
+        if (this.weight < 2 && this.power > 4) {
+            console.log('start system')
+            return
+        }
+        console.log('ERROR!!! it is not a ultrabook!!!');
+    }
+
+    logger = () => console.log(this);
+}
+
+let ultrabook = new AddUltrabook(4, 1000, 'supermachine', 17, 1);
+ultrabook.logger();
+ultrabook.onUltrabook();
+
+// Від базвого класу потрібно створити базовий ПК.
+//     В нього має бути новий метод запуску ігор.
+//     Кількість FPS визначається як потужність / опервтивку.
+//     Example: `You are playing *GAME_NAME* with *FPS_COUNT* FSP`
+//
+// Компютер можна апгрейдити.
+//     Потужність процесора можна збільшувати максимум на 10%. Зменшувати її не можна.
+//     Оперативку можна збільшити лише в 2 рази. Зменшувати її не можна.
+//     Для зміни характеритик мають бути свої методи. Мняти змінну "в лоб" заборонено.
+// ===
+
+class BasicPc extends AddComp {
+    constructor(ram, cpu, name) {
+        super(ram, cpu, name);
+        this.fps = this.cpu / this.ram;
+    }
+
+    logger = () => this;
+    startGame = (enter_name) => console.log(`You are playing ${enter_name} with ${this.fps} FSP`)
+
+    upCpu(value) {
+        if (value <= (0.1 * this.cpu) && value >= 0) {
+            this.cpu += value;
+        }
+    }
+
+    upRam(value) {
+        if (value <= this.ram && !-value) {
+            this.ram += value;
+        }
+    }
+}
+
+let basicPc = new BasicPc(12, 500, 'basic');
+basicPc.logger();
+basicPc.startGame('DOOM');
+basicPc.upCpu(50);
+basicPc.upRam(10);
+
+// Від базового ПК необхідно зробити ігнорий ПК.
+//     Кількість ФПС має бути рівно в 2 рази більший ніж в звичайного ПК.
+//     При запуску однієї гри потужніть процесора має падати на 0.1%.
+//     Якшо потужність процесора менша ніж 500. І оперативка менша за 8 потрібно ивдати помилку,
+//     що на цьому відрі ігри не запускаються.
+
+class GamePs extends BasicPc {
+    constructor(ram, cpu, name) {
+        super(ram, cpu, name,);
+        this.fps = basicPc.fps * 2;
+        if (this.cpu < 500 || this.ram < 8) {
+            console.log('на цьому відрі ігри не запускаються.')
+        }
+        if (this.startGame) {
+            this.cpu = this.cpu - (this.cpu%0.1)
+        }
+    }
+
+    logger = () => console.log(this);
+}
+
+let gamePc = new GamePs(8, 500, 'game comp')
+gamePc.logger()
+gamePc.startGame()
+
+//  -  Створити функцію конструктор для об'єкту який описує теги
 // Властивості
 // -назва тегу
 // - опис його дій
@@ -17,6 +157,7 @@
 // -option
 // -select
 // Приклад результату
+//
 // {
 //     titleOfTag: 'area',
 //         action: `Каждый элемент <area> определяет активные области изображения, которые являются ссылками...`,
@@ -28,17 +169,17 @@
 // ]
 // }
 
-
-function AttrCreate(attrName, action) {
-    this.attrName = attrName;
-    this.action = action;
-}
-
-function TegInf(name, action, attrs) {
-    this.name = name;
-    this.action = action;
-    this.attrs = [attrs];
-}
+//
+// function AttrCreate(attrName, action) {
+//     this.attrName = attrName;
+//     this.action = action;
+// }
+//
+// function TegInf(name, action, attrs) {
+//     this.name = name;
+//     this.action = action;
+//     this.attrs = [attrs];
+// }
 
 
 //
@@ -181,14 +322,14 @@ function TegInf(name, action, attrs) {
 //
 // }
 
-class AddTegInfo {
-    constructor(name, action, attrs) {
-        this.name = name;
-        this.action = action;
-        this.attrs = [attrs];
-    }
-
-}
+// class AddTegInfo {
+//     constructor(name, action, attrs) {
+//         this.name = name;
+//         this.action = action;
+//         this.attrs = [attrs];
+//     }
+//
+// }
 
 // let aTegInfo = new AddTegInfo('<a>', 'Тег <a> является одним из важных элементов HTML и предназначен для создания ссылок.' +
 //     'В зависимости от присутствия атрибутов name или href тег <a> устанавливает ссылку или якорь. Якорем называется закладка внутри страницы,' +
@@ -223,43 +364,42 @@ class AddTegInfo {
 // -- changeYear (newValue) - змінює рік випуску на значення newValue
 // -- addDriver (driver) - приймає об'єкт який "водій" з довільним набором полів, і доавляет його в поточний об'єкт car
 //
-function CarCreate(model, mfr, year, max_speed, eng_volume) {
 
-    this.model = model;
-    this.mfr = mfr;
-    this.year = year;
-    this.max_speed = max_speed;
-    this.eng_volume = eng_volume;
-
-    this.drive = function () {
-        console.log(`їдемо зі швидкістю ${max_speed} на годину`);
-    }
-    this.info = function () {
-        console.log(this.model,
-            this.mfr,
-            this.year,
-            this.max_speed,
-            this.eng_volume)
-    }
-//треба подумать ще
-
-    this.increaseMaxSpeed = function increaseMaxSpeed(newSpeed) {
-        this.max_speed += newSpeed;
-    }
-
-    this.changeYear = function changeYear(newValue) {
-        this.year = newValue;
-    }
-
-    this.addDriver = function CreateDriver(name, age, exp) {
-        this.name = name;
-        this.age = age;
-        this.exp = exp;
-
-    }
-}
-
-
+// function CarCreate(model, mfr, year, max_speed, eng_volume) {
+//
+//     this.model = model;
+//     this.mfr = mfr;
+//     this.year = year;
+//     this.max_speed = max_speed;
+//     this.eng_volume = eng_volume;
+//
+//     this.drive = function () {
+//         console.log(`їдемо зі швидкістю ${max_speed} на годину`);
+//     }
+//     this.info = function () {
+//         console.log(this.model,
+//             this.mfr,
+//             this.year,
+//             this.max_speed,
+//             this.eng_volume)
+//     }
+//
+//     this.increaseMaxSpeed = function increaseMaxSpeed(newSpeed) {
+//         this.max_speed += newSpeed;
+//     }
+//
+//     this.changeYear = function changeYear(newValue) {
+//         this.year = newValue;
+//     }
+//
+//     this.addDriver = function CreateDriver(name, age, exp) {
+//         this.name = name;
+//         this.age = age;
+//         this.exp = exp;
+//
+//     }
+// }
+//
 // let car = new CarCreate(' insignia', 'Opel Automobile GmbH', '2019', 218, '1490');
 // console.log(car);
 //
@@ -270,41 +410,206 @@ function CarCreate(model, mfr, year, max_speed, eng_volume) {
 // car.changeYear(2020);
 // car.addDriver('vasian', '32', '5');
 // console.log(car);
-
-
 //
-// - Створити клас який дозволяє створювати об'єкти car, з властивостями модель, виробник, рік випуску, максимальна швидкість, об'єм двигуна. додати в об'єкт функції:
+//
+//
+// - Створити клас який дозволяє створювати об'єкти car, з властивостями модель, виробник, рік випуску,
+// максимальна швидкість, об'єм двигуна. додати в об'єкт функції:
 // -- drive () - яка виводить в консоль "їдемо зі швидкістю {максимальна швидкість} на годину"
 // -- info () - яка виводить всю інформацію про автомобіль
 // -- increaseMaxSpeed (newSpeed) - яка підвищує значення максимальної швидкості на значення newSpeed
 // -- changeYear (newValue) - змінює рік випуску на значення newValue
-// -- addDriver (driver) - приймає об'єкт який "водій" з довільним набором полів, і доавляет його в поточний об'єкт car
+// -- addDriver (driver) - приймає об'єкт який "водій" з довільним набором полів, і доавляет його в поточний
+// об'єкт car
+
+// class CarCreate {
+//     constructor(model, mfn, year, max_speed, volume) {
+//         this.model = model;
+//         this.mfn = mfn;
+//         this.year = year;
+//         this.max_speed = max_speed;
+//         this.volume = volume;
+//     }
+//
+//     drive() {
+//         console.log(`їдемо зі швидкістю ${this.max_speed} на годину`);
+//     };
+//
+//     info() {
+//         console.log(this);
+//     }
+//
+//     increaseMaxSpeed(newSpeed) {
+//         this.max_speed += newSpeed
+//     }
+//
+//     changeYear(newValue) {
+//         this.year = newValue;
+//     }
+//
+//     addDriver(name, age, exp) {
+//         this.name = name;
+//         this.age = age;
+//         this.exp = exp;
+//     }
 //
 //
+// }
+//
+// let newCar = new CarCreate('drova', 'garaj', '1955', 43, 0.7)
+// newCar.info();
+// newCar.changeYear(1111)
+// newCar.drive();
+// newCar.increaseMaxSpeed(15);
+// newCar.addDriver('dimas','89','70');
+// console.log(newCar);
+
 // -створити класс попелюшка з полями ім'я, вік, розмір ноги
 // --Створити 10 попелюшок , покласти їх в масив
 // --Сторити об'єкт класу "принц" за допомоги класу який має поля ім'я, вік, туфелька яку він знайшов.
 // -- за допоиоги циклу знайти яка попелюшка повинна бути з принцом
+
+
+// class cinderella {
+//     constructor(name, age, foot_size) {
+//         this.name = name;
+//         this.age = age;
+//         this.foot_size = foot_size;
+//     }
+//     pushGirls() {
+//         cinderellas.push(this);
+//     }
+// }
 //
-
-class cinderella {
-    constructor(name, age, foot_size) {
-        this.name = name;
-        this.age = age;
-        this.foot_size = foot_size;
-    }
- }
-
- let cinderellas = []
-let olia = new cinderella('olia','25','36');
-console.log(olia);
-
-let margo =  new cinderella('margo','34','38');
-
-
+// let cinderellas = [];
 //
-// -створити функцію конструктор попелюшка з полями ім'я, вік, розмір ноги
+// let margo = new cinderella('margo', '34', '38');
+// margo.pushGirls()
+//
+// let olga = new cinderella('olga', '25', '36');
+// olga.pushGirls()
+//
+// let natalie = new cinderella('natalie', '16', '39');
+// natalie.pushGirls()
+//
+// let valeria = new cinderella('valeria', '38', '31');
+// valeria.pushGirls()
+//
+// let tania = new cinderella('tania', '13', '28');
+// tania.pushGirls()
+//
+// let ania = new cinderella('ania', '20', '38');
+// ania.pushGirls()
+//
+// let victoria = new cinderella('victoria', '9', '25');
+// victoria.pushGirls()
+//
+// let aleksandra = new cinderella('aleksandra', '18', '31');
+// aleksandra.pushGirls()
+//
+// let tonia = new cinderella('tonia', '85', '46');
+// tonia.pushGirls()
+//
+// let jaroslava = new cinderella('jaroslava', '26', '33');
+// jaroslava.pushGirls()
+//
+// console.log(cinderellas);
+//
+//
+// class prince {
+//     constructor(name,age,slipper) {
+//        this.name = name;
+//        this.age = age;
+//        this.slipper = slipper;
+//
+// }
+//     }
+//
+// let vasia = new prince('vasia','25','33');
+// console.log(vasia);
+//
+// for (const thisGirl of cinderellas) {
+//     if (thisGirl.foot_size === vasia.slipper) {
+//          console.log(thisGirl)
+//     }
+// }
+
+// --створити функцію конструктор попелюшка з полями ім'я, вік, розмір ноги
 // --Створити 10 попелюшок , покласти їх в масив
-// --Сторити об'єкт типу "принц" за допомоги функції конструктора з полями ім'я, вік, туфелька яку він знайшов, та функцію "пошук попелюшки"
+// --Сторити об'єкт типу "принц" за допомоги функції конструктора з полями ім'я, вік, туфелька яку він знайшов,
+// та функцію "пошук попелюшки"
 // -- функція повинна приймати масив попелюшок, та шукає ту котра йому підходить
 // © 2021 GitHub, Inc.
+
+// cinderellasArr2 = [];
+//
+// function Cinderella2(name,age,foot_size) {
+//     this.name = name;
+//     this.age = age;
+//     this.foot_size = foot_size;
+//
+//     this.pusher = function () {
+//         cinderellasArr2.push(this)
+//     }
+// }
+//
+// let margo = new Cinderella2('margo', '34', '38');
+// margo.pusher();
+//
+// let olga = new Cinderella2('olga', '25', '36');
+// olga.pusher();
+//
+// let natalie = new Cinderella2('natalie', '16', '39');
+// natalie.pusher();
+//
+// let valeria = new Cinderella2('valeria', '38', '31');
+// valeria.pusher();
+//
+// let tania = new Cinderella2('tania', '13', '28');
+// tania.pusher();
+//
+// let ania = new Cinderella2('ania', '20', '38');
+// ania.pusher();
+//
+// let victoria = new Cinderella2('victoria', '9', '25');
+// victoria.pusher();
+//
+// let aleksandra = new Cinderella2('aleksandra', '18', '31');
+// aleksandra.pusher();
+//
+// let tonia = new Cinderella2('tonia', '85', '46');
+// tonia.pusher();
+//
+// let jaroslava = new Cinderella2('jaroslava', '26', '33');
+// jaroslava.pusher();
+//
+// console.log(cinderellasArr2);
+//
+//
+// function prince2(name, age, snipped) {
+//     this.name = name;
+//     this.age = age;
+//     this.snipper = snipped;
+//
+//     this.searcher = function (arr) {
+//         for (const arrElement of arr) {
+//             if (arrElement.foot_size === snipped ) {
+//                 console.log(arrElement)
+//             }
+//         }
+//
+//     }
+// }
+//
+// let nikolai = new prince2('nikolai','54','31');
+// nikolai.searcher(cinderellasArr2)
+// console.log();
+
+
+
+
+
+
+
+
+

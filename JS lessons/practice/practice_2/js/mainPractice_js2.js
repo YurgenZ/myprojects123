@@ -275,13 +275,13 @@
 
 //так якось зручніше
 
-// let arrRandomNum = [];
+let arrRandomNums = [];
 
-//     for (let i = 0; i < 20; i++) {
-//        let r = parseInt(Math.random()*100;
-// arrRandomNum.push(r);
-// }
-// console.log(arrRandomNum);
+    for (let i = 0; i < 20; i++) {
+        let r = parseInt(Math.random() * 100);
+        arrRandomNums.push(r);
+}
+console.log(arrRandomNums);
 
 // d. Заповнити масив 20ма рандомними чисалами в діапазоні від 8 до 732 (Google: Generate random number JS)
 
