@@ -135,22 +135,40 @@
 // })
 // console.log(nameLengthDown);
 
+
 // c) пройтись по ньому та додати кожному юзеру поле id - яке характеризує унікальний індентифікатор
 // (По якому принципу його створювати - ваше рішення),
 // та зберегти це в новий масив (первинний масив залишиться без змін)
-
-// ????????????????????????????????????????????????????????????????????????????????????
-// let arrId = [...users]
-// arrId.map((user, index) => {
-//     user.id = (index + 1);
-//     return user
-// })
+//
+//
+// let arrId = users.map((user, index) => ({
+//     ...user, id: index + 1
+// }))
 // console.log(arrId);
 // console.log(users);
 // ?????????????????????????????????????????????????????????????????????????????????
 // d) відсортувати його за індентифікатором
-// e) Всі хто одружений мають попасти у новий масив та отрмати квартиру (reduce)
 //
+// let sortById = arrId.sort((a, b) => {
+//     if (a.id < b.id) {
+//         return -1;
+//     }
+// })
+// console.log(sortById);
+//
+// // e) Всі хто одружений мають попасти у новий масив та отрмати квартиру (reduce)
+// let marriedAddArr = arrId.reduce((acc,value) =>
+//     value.isMarried ? [...acc,{...value, hasHouse:true}] : acc,[]);
+// console.log(marriedAddArr);
+//
+//????????????????????????????????????????????????????????????????
+//надо придумать как это сделать другим способом
+// let arrMarried = arrId.reduce((acc, value) => {
+//     if (value.isMarried) {
+//     return [...acc,{...value,hasHouse:true}];
+//     }return acc
+// })
+// ???????????????????????????????????????????????????????????????????
 // ______________________________________________________________________________________________________________________________________________________
 // РОБОТА В АУДИТОРІЇ
 // ______________________________________________________________________________________________________________________________________________________
@@ -302,16 +320,22 @@
 //     return cars.power > 300 && cars.producer === 'subaru';
 // })
 // console.log(powerAndMfn);
-
-//      - мотор серіі ej
-
-// let filterEng = cars.find(cars =>cars.engine.('ej'))
 //
+//      - мотор серіі ej
+//
+// let filterEng = cars.filter((cars)=>{
+//     return cars.engine.includes('ej');
+// })
 // console.log(filterEng);
-///??????????????????????????????????????????????????????????????????????????????????????
-//      - сили більше ніж 300 + виробник субару + мотор серіі ej
-// console.log()
-
+//
+// //      - сили більше ніж 300 + виробник субару + мотор серіі ej
+//
+// const filterPowerMfnEng = cars.filter((cars) => {
+//     return cars.power > 300 && cars.producer === 'subaru' && cars.engine.includes('ej');
+// })
+// console.log(filterPowerMfnEng);
+//
+//
 //      - двигун меньше 3х літрів + виробник мерседес
 //
 // let value3AndMfn = cars.filter(cars => {
@@ -332,21 +356,21 @@
 //     return cars.power > 250 && cars.producer === 'bmw'
 // })
 // console.log(filterPowBmw);
-
+//
 // - взять слдующий массив
-const usersWithAddress = [
-    {id: 9, name: 'vasya', age: 31, isMarried: false, address: {city: 'Kyiv', street: 'Gongadze', number: 16}},
-    {id: 2, name: 'petya', age: 30, isMarried: true, address: {city: 'Rivne', street: 'Zelena', number: 1}},
-    {id: 4, name: 'kolya', age: 29, isMarried: true, address: {city: 'Lviv', street: 'Pasichna', number: 121}},
-    {id: 3, name: 'olya', age: 28, isMarried: false, address: {city: 'Rivne', street: 'Shevchenko', number: 90}},
-    {id: 8, name: 'max', age: 30, isMarried: true, address: {city: 'Lviv', street: 'Kriva Lipa', number: 115}},
-    {id: 6, name: 'anya', age: 31, isMarried: false, address: {city: 'Lviv', street: 'Shevchenko', number: 2}},
-    {id: 10, name: 'oleg', age: 28, isMarried: false, address: {city: 'Kyiv', street: 'Centralna', number: 22}},
-    {id: 5, name: 'andrey', age: 29, isMarried: true, address: {city: 'Lviv', street: 'Gorodotska', number: 43}},
-    {id: 1, name: 'masha', age: 30, isMarried: true, address: {city: 'Kyiv', street: 'Peremogi', number: 12}},
-    {id: 7, name: 'olya', age: 31, isMarried: false, address: {city: 'Lviv', street: 'Naukova', number: 16}},
-    {id: 11, name: 'max', age: 31, isMarried: true, address: {city: 'Rivne', street: 'Ivana Franka', number: 121}}
-];
+// const usersWithAddress = [
+//     {id: 9, name: 'vasya', age: 31, isMarried: false, address: {city: 'Kyiv', street: 'Gongadze', number: 16}},
+//     {id: 2, name: 'petya', age: 30, isMarried: true, address: {city: 'Rivne', street: 'Zelena', number: 1}},
+//     {id: 4, name: 'kolya', age: 29, isMarried: true, address: {city: 'Lviv', street: 'Pasichna', number: 121}},
+//     {id: 3, name: 'olya', age: 28, isMarried: false, address: {city: 'Rivne', street: 'Shevchenko', number: 90}},
+//     {id: 8, name: 'max', age: 30, isMarried: true, address: {city: 'Lviv', street: 'Kriva Lipa', number: 115}},
+//     {id: 6, name: 'anya', age: 31, isMarried: false, address: {city: 'Lviv', street: 'Shevchenko', number: 2}},
+//     {id: 10, name: 'oleg', age: 28, isMarried: false, address: {city: 'Kyiv', street: 'Centralna', number: 22}},
+//     {id: 5, name: 'andrey', age: 29, isMarried: true, address: {city: 'Lviv', street: 'Gorodotska', number: 43}},
+//     {id: 1, name: 'masha', age: 30, isMarried: true, address: {city: 'Kyiv', street: 'Peremogi', number: 12}},
+//     {id: 7, name: 'olya', age: 31, isMarried: false, address: {city: 'Lviv', street: 'Naukova', number: 16}},
+//     {id: 11, name: 'max', age: 31, isMarried: true, address: {city: 'Rivne', street: 'Ivana Franka', number: 121}}
+// ];
 //
 // -- Відсортувати їх по ID
 //
@@ -417,7 +441,7 @@ const usersWithAddress = [
 //     return 1;
 // })
 // console.log(sortByNum);
-
+//
 // -- Залигити тільки тих, хто молодший ніж 30 (filter)
 //
 // let filterByAge = usersWithAddress.filter(usersWithAddress =>{
@@ -445,13 +469,28 @@ const usersWithAddress = [
 //     return usersWithAddress.address.number %2 === 0;
 // })
 // console.log(pairedNums);
-
+//
 // -- Порахувати загальний вік всіх людей. (reduce)
-
-
-// -- Ті, хто одружений і старий за 30 має отримати обєкти child і попасти в новий масив (reduce)
 //
+// const allAge = usersWithAddress.reduce((acc,user) =>{
+//     return acc + user.age
+// },0)
+// console.log(allAge);
+// // -- Ті, хто одружений і старий за 30 має отримати обєкти child і попасти в новий масив (reduce)
 //
+// const allMarried301 = usersWithAddress.reduce((acc,user) =>{
+//     if (user.isMarried && user.age <= 30){
+//
+//         user.child = true;
+//     }
+//     return user
+// })
+// console.log(allMarried301);
+//
+// let allMarried30 = usersWithAddress.reduce((acc,user) =>
+//     user.isMarried && user.age <= 30 ? [...acc,{...user, child:true}] : acc,[]);
+// console.log(allMarried30);
+
 // ______________________________________________________________________________________________________________________________________________________
 // Додатково
 // ______________________________________________________________________________________________________________________________________________________
