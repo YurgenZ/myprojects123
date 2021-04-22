@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        body {
+            background-color: silver;
+        }
+
+        * {
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+        }
+
+        #itemCarousel {
+            background-color: silver;
+            width: 200px;
+        }
+
+        #checkList{
+            display: flex;
+            flex-direction: row;
+        }
+    </style>
+
+</head>
+<body>
+<div id=nav_menu>
+    <h1>Lorem ipsum.</h1>
+    <ul id="list">
+        <li><a href="page0">Lorem ipsum dolor sit amet.</a></li>
+        <li><a href="page1">Lorem ipsum dolor sit amet.</a></li>
+        <li><a href='page2'>Lorem ipsum dolor sit amet.</a></li>
+        <li><a href="page3">Lorem ipsum dolor sit amet.</a></li>
+        <li><a href="page4">Lorem ipsum dolor sit amet.</a></li>
+    </ul>
+</div>
+<div>
+    <form id="form1" name="form1">
+        <input type="text" value="">
+        <input type="text" value="">
+    </form>
+
+
+    <form id="form2" name='form2'>
+        <input type="text" value="">
+        <input type="text" value="">
+    </form>
+    <button id=btn1>
+    </button>
+</div>
+
+
+<div id="carousel">
+    <img id='itemCarousel' src="" alt="">
+
+    <button id="btnNext"></button>
+    <button id="btnPrev"></button>
+</div>
+
+<div>
+    <input id="textInp" type="text">
+    <input id="confirmBtn" type="button" value="confirm1">
+</div>
+
+<div>
+    <input id="textInp2" type="text">
+    <input id="confirmBtn2" type="button" value="confirm2">
+</div>
+
+<div id="checkList">
+    <input type="checkbox" id="check1">
+    <label for="check1">filterFalse</label>
+    <input type="checkbox" id="check2">
+    <label for="check2">age over 29 </label>
+    <input type="checkbox" id="check3">
+    <label for="check3">Kyiv?</label>
+    <input type="button" id="checkBtn" value="push me">
+</div>
+
+
+<script src="js/hw_js_7.js"></script>
+</body>
+</html>

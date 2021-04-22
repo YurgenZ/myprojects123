@@ -9,16 +9,16 @@
 
 // 2) створити функцію яка заповнює масив рандомними числами та виводить його. Для виведення використати попередню функцію.
 
-// function randomNums() {
-//     let arrRandom = [0];
-//     for (let i = 0; i < 10; i++) {
-//         let r = parseInt(Math.random() * 100);
-//         arrRandom.push(r);
-//     }
-//     return arrRandom;
-// }
+function randomNums() {
+    let arrRandom = [0];
+    for (let i = 0; i < 20; i++) {
+        let r = parseInt(Math.random() * 100);
+        arrRandom.push(r);
+    }
+    return arrRandom;
+}
 // getResult(randomNums());
-
+console.log(randomNums());
 //+++
 
 // let arrRandomNum = [];
@@ -167,7 +167,8 @@
 // let logger = arrValue(arrOfValues);
 // console.log(logger);
 
-// 11) створити функцію  яка скаладає значення елементів з однаковими індексами  та повертає новий результуючий масив.
+// 11) створити функцію  яка скаладає значення елементів з однаковими індексами  та повертає новий
+// результуючий масив.
 //     EXAMPLE:
 // [1,2,3,4]
 // [2,3,4,5]
@@ -176,27 +177,33 @@
 //
 //
 
-let arrOfNums1 = [1, 2, 3, 4];
-let arrOfNums2 = [4, 3, 2, 1];
+// let arrOfNums1 = [1, 2, 3, 4];
+// let arrOfNums2 = [4, 3, 2, 1];
+//
+// function sumSomeElements(arr1, arr2) {
+//     let sum = [];
+//     for (let i = 0; i <= arr1.length - 1; i++) {
+//         for (let j = 0; j <= arr2.length - 1; j++) {
+//             if (i === j)
+//                 sum.push(arr1[i] + arr2[j]);
+//         }
+//         // console.log(sum);
+//     }
+//     return sum
+// }
+//
+// let sum = sumSomeElements(arrOfNums1, arrOfNums2);
+// console.log(sum);
 
-function sumSomeElements(arr1, arr2) {
-    let sum = [];
-    for (const arr1Element of arr1) {
-        for (const arr2Element of arr2) {
-            if (arr1Element === arr2Element)
-                sum.push(arr1(arr1Element) + arr2(arr2Element));
-            console.log(arr2Element);
-        }
-    }
-    return sum
-}
-
-let sum = sumSomeElements(arrOfNums1, arrOfNums2);
-console.log(sum);
 // ============================================================================================
 //
 // - створити функцію яка приймає будь-яку кількість чисел, повертає найменьше, а виводить найбільше (Math використовувати заборонено);
 
+function addNumbers(enter_num = []) {
+    let arr = [];
+
+
+}
 
 // - Взяти задачі з завдання 10 та 9 та обєднати їх в одну динамічну функцію.
 //     Що б я міг сам вибрати повернути мені масив ключів чи масив значень.
