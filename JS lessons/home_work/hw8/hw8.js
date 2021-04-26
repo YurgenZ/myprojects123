@@ -16,15 +16,19 @@ textarea1.innerText = (localStorage.getItem('input'))
 
 const forma = document.forms.forma;
 
-
     for (let i = 0; i < forma.length; i++) {
         localStorage.getItem('forma[i]');
         console.log(forma[i]);
-        forma[i].value = localStorage.getItem(forma[i].name)
+        forma[i].value = localStorage.getItem(forma[i].name);
         forma[i].type === 'checkbox' ? localStorage.getItem(forma[i].checked):''
     }
+    let checkbox1  = document.getElementsByName('checkbox');
+    checkbox1.checked ? localStorage.getItem(checkbox1.checked):''
+
 forma.oninput=({target:{type,name,value,checked,id}}) =>{
-        localStorage.setItem(name,value)
+
+        localStorage.setItem(name,value);
+
 }
 
 
@@ -35,9 +39,12 @@ forma.oninput=({target:{type,name,value,checked,id}}) =>{
 //      (не забудьте!чекпоинт истории - нажатеи кнопки сохранить).
 
 
+
 // - Реализуйте записную книгу, хранящую данные в локальном хранилище.
 //      Данные которые надо сохранять : ФИО, номер, почта, фирма, отдел, день рождения
 // Данные вводить через соответсвующую форму.
 //      --Каждому контакту добавить кнопку для удаления контакта.
 //      --Каждому контакту добавить кнопку редактироваиня. При нажати на нее появляется форма,
 //      в которой есть все необходимые инпуты для редактирования, которые уже заполнены данными объекта
+
+
