@@ -1,0 +1,14 @@
+.users-box{
+    width: fit-content;
+    border: solid black 1px;
+    padding-bottom: 5px;
+}
+
+.singleUserBox{
+    width: fit-content;
+    border: solid #6e66ff 1px;
+    padding-bottom: 5px;
+}
+.wrap{
+display: flex;
+}
