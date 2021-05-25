@@ -17,6 +17,7 @@ function randomNums() {
     }
     return arrRandom;
 }
+
 // getResult(randomNums());
 console.log(randomNums());
 //+++
@@ -199,11 +200,14 @@ console.log(randomNums());
 //
 // - створити функцію яка приймає будь-яку кількість чисел, повертає найменьше, а виводить найбільше (Math використовувати заборонено);
 
-function addNumbers(enter_num = []) {
-    let arr = [];
-
-
+function addNumbers(enter_num = [],cb) {
+        this.arr = enter_num;
+        enter_num.find((a,b)=>{
+           return (a-b < 0) ?  true : ''
+        } )
 }
+
+console.log(addNumbers([1, 2, 3, 4, 5]));
 
 // - Взяти задачі з завдання 10 та 9 та обєднати їх в одну динамічну функцію.
 //     Що б я міг сам вибрати повернути мені масив ключів чи масив значень.
